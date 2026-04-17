@@ -40,3 +40,20 @@ document.querySelectorAll('.feature-card, .pricing-card, .contact-wrapper').forE
   el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
   observer.observe(el);
 });
+// Highlight active nav link on scroll
+const sections = document.querySelectorAll('section[id]');
+window.addEventListener('scroll', () => {
+  const scrollY = window.scrollY;
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop - 120;
+    const sectionHeight = section.offsetHeight;
+    const id = section.getAttribute('id');
+    const link = document.querySelector(`.nav-links a[href="#${id}"]`);
+    if (link) {
+      if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+        document.querySelectorAll('.nav-links a').forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+      }
+    }
+  });
+});
