@@ -313,3 +313,8 @@ body { background: var(--dark); color: var(--text); font-family: var(--font-body
   .pricing-card.popular { transform: scale(1); }
   .footer-links { grid-template-columns: repeat(2, 1fr); }
 }
+/* Navbar active link highlight */
+.nav-links a.active {
+  color: white;
+  border-bottom: 2px solid var(--primary);
+}
